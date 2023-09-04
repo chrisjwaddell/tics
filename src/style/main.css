@@ -1,0 +1,540 @@
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+html {
+	font-family: sans-serif; /* 1 */
+	-ms-text-size-adjust: 100%; /* 2 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+	margin: 0;
+	background-color: #ffffff;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+button {
+	overflow: visible;
+}
+
+button::-moz-focus-inner {
+	border: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box; /* 1 */
+	padding: 0; /* 2 */
+}
+
+textarea {
+	overflow: auto;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+form,
+fieldset,
+legend,
+figure,
+table,
+th,
+td,
+caption,
+hr {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 36px;
+	font-size: 2.25rem;
+	line-height: 1.1666666667;
+}
+
+h2 {
+	font-size: 28px;
+	font-size: 1.75rem;
+	line-height: 1.2857142857;
+}
+
+label,
+input {
+	/* display: block; */
+	margin: 0 auto;
+}
+
+label {
+	font-size: 24px;
+	/* font-weight: 600; */
+}
+
+input {
+	/* width: 100%; */
+	font-size: 20px;
+	width: 60px;
+	border-style: solid;
+	border-width: 1px;
+}
+
+/* ==========================================================================
+   #FRAMEWORK
+   ==========================================================================
+*/
+.isvisible {
+	visibility: visible;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.dn {
+	display: none !important;
+}
+
+.linethrough {
+	text-decoration: line-through;
+}
+
+/* ==========================================================================
+   #DIALOG
+   ==========================================================================
+*/
+/*
+    Animation of open and close can be changed
+    Width
+*/
+/*
+    overflow-hidden can be done better
+*/
+.modal {
+	width: 375px;
+	border-radius: 10px;
+	padding: 0;
+}
+
+.modal::backdrop {
+	background: rgba(0, 0, 0, 0.2);
+	transition: backdrop-filter 0.5s ease;
+}
+
+.modal__container {
+	padding: 10px;
+}
+
+.modal__top {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	padding: 4px;
+	margin-bottom: 8px;
+	background-color: #7cdf90;
+}
+
+.modal__title {
+	text-align: center;
+	margin: 2px auto 4px;
+}
+
+.modal__buttons {
+	display: flex;
+	margin: 10px auto;
+	height: 50px;
+	width: 80%;
+}
+
+dialog:not([open]) {
+	pointer-events: none;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.2);
+	transition: backdrop-filter 0.5s ease;
+	animation: slide-up 1s ease normal;
+}
+
+dialog[open] {
+	animation: slide-down 1s ease normal;
+}
+
+@keyframes slide-down {
+	from {
+		transform: translateY(-610px);
+	}
+	to {
+		transform: translateY(0%);
+	}
+}
+@keyframes slide-up {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(-610px);
+	}
+}
+
+/* ==========================================================================
+   #CONTAINER
+   ========================================================================== */
+.o-container {
+	width: 100%;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (min-width: 576px) {
+	.o-container {
+		max-width: 450px;
+	}
+}
+@media (min-width: 768px) {
+	.o-container {
+		max-width: 740px;
+	}
+}
+@media (min-width: 992px) {
+	.o-container {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1250px) {
+	.o-container {
+		max-width: 1250px;
+	}
+}
+
+/* ==========================================================================
+   #LAYOUT
+   ========================================================================== */
+
+.o-x--center {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.o-y--center {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.o-flex {
+	display: flex;
+}
+.o-flex.column {
+	flex-direction: column;
+}
+.o-flex.row {
+	flex-direction: row;
+}
+.o-flex.x--center {
+	justify-content: center;
+}
+.o-flex.x--left {
+	justify-content: flex-start;
+}
+.o-flex.x--right {
+	justify-content: flex-end;
+}
+.o-flex.x--between {
+	justify-content: space-between;
+}
+.o-flex.x--around {
+	justify-content: space-around;
+}
+.o-flex.x--evenly {
+	justify-content: space-evenly;
+}
+.o-flex.y--center {
+	align-items: center;
+}
+.o-flex.y--top {
+	align-items: flex-start;
+}
+.o-flex.y--bottom {
+	align-items: flex-end;
+}
+.o-flex.y--stretch {
+	align-items: stretch;
+}
+.o-flex.y--baseline {
+	align-items: baseline;
+}
+.o-flex.xy--center {
+	justify-content: center;
+	align-items: center;
+}
+
+.o-flex.wrap {
+	flex-wrap: wrap;
+}
+
+.o-flex.nowrap {
+	flex-wrap: nowrap;
+}
+
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+.c-btn {
+	display: inline-block; /* [1] */
+	vertical-align: middle; /* [2] */
+	font: inherit; /* [3] */
+	text-align: center; /* [4] */
+	margin: 0; /* [4] */
+	cursor: pointer; /* [5] */
+	padding: 12px 24px;
+	transition: all 300ms ease-in-out;
+	border-radius: 3px;
+}
+
+/* Style variants
+   ========================================================================== */
+.c-btn--primary {
+	background-color: #ffa000;
+}
+.c-btn--primary:hover,
+.c-btn--primary:focus,
+.c-btn--primary:active {
+	color: white;
+	text-decoration: none; /* [4] */
+	background-color: #ff6000;
+	transition: background-color 0.2s linear, color 0.2s linear;
+}
+.c-btn--primary:focus,
+.c-btn--primary:active {
+	outline: none;
+	box-shadow: 0 0 0 0.175rem white, 0 0 0 0.35rem #ffa000;
+}
+
+.c-btn--secondary {
+	background-color: #22a267;
+	background-color: #e0e0e0;
+	color: black;
+}
+.c-btn--secondary:hover,
+.c-btn--secondary:focus,
+.c-btn--secondary:active {
+	text-decoration: none; /* [4] */
+	background-color: #aaa;
+	transition: background-color 0.2s linear, color 0.2s linear;
+}
+.c-btn--secondary:focus,
+.c-btn--secondary:active {
+	outline: none;
+	box-shadow: 0 0 0 0.125rem #ffa000, 0 0 0 0.325rem white;
+}
+
+/**
+ * Positive buttons skin. Extends `.btn`.
+ */
+.btn--positive {
+	background-color: #3f990f;
+	color: white;
+}
+
+/**
+ * Negative buttons skin. Extends `.btn`.
+ */
+.btn--negative {
+	background-color: #9f102e;
+	color: white;
+}
+
+/* ==========================================================================
+   #DIALOG CLOSE
+   ========================================================================== */
+/*
+    Top right X to close a dialog box, SVG to make the X
+    The X for the close is done in SVG in css background-color
+    because CSS is cached
+
+
+    The close button/div is added this way:
+    <div class="c-close">
+        <div class="c-close__container"></div>
+    </div>
+*/
+.c-close {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	width: 25px;
+	height: 25px;
+	pointer-events: all;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, 0.15);
+	border: 1px solid #666;
+}
+
+.c-close__container {
+	display: flex;
+	width: 12px;
+	height: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 50 50' overflow='visible' stroke='black' stroke-width='5' stroke-linecap='round' %3E%3Cline x1='5' y1='5' x2='45' y2='45' /%3E%3Cline x1='5' y1='45' x2='45' y2='5' /%3E%3C/svg%3E%0A");
+}
+
+/* ==========================================================================
+   #FIELDS
+   ========================================================================== */
+
+.fld--col {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+}
+
+.fld--row {
+	display: flex;
+	flex-direction: row;
+	margin-top: 5px;
+}
+
+.fld-label {
+	padding: 0 0 0 5px;
+	/* font-size: #{round($fld-font-size * 0.9)}px; */
+	line-height: normal;
+	line-height: 1;
+	font-weight: 600;
+}
+
+.fld-chk {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: relative;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	margin-left: 10px;
+	border: 1px solid green;
+	background-color: #fff;
+	border-radius: 5px;
+	/* font-size: 1em; */
+	/* font-size: 26px; */
+	text-align: center;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+	color: #d3d6db;
+	outline: none;
+	cursor: pointer;
+	/* box-shadow: 4px 6px 5px -3px #e5e5e5; */
+	-webkit-transition: all ease-in-out 0.4s, box-shadow ease-in-out 0.15s;
+	transition: all ease-in-out 0.4s, box-shadow ease-in-out 0.15s;
+}
+
+.fld-chk:hover {
+	color: #ffffff;
+	border: 1px solid #777777;
+	box-shadow: 4px 6px 5px -3px #e5e5e5;
+}
+
+.fld-chk:checked:hover {
+	box-shadow: 4px 6px 5px -3px #e5e5e5;
+}
+
+.fld-chk::after {
+	content: "\2714";
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	color: #ffffff;
+	line-height: 1;
+	font-size: 16px;
+	padding-top: 2px;
+	box-sizing: content-box;
+}
+
+.fld-chk:checked {
+	background-color: #3cb371;
+	/* box-shadow: none; */
+	color: transparent;
+	border: none;
+}
+
+.fld-chk:checked::after {
+	opacity: 1;
+}
+
+.fld-chk:active {
+	transform: scale(0);
+}
+
+.fld-chk:disabled:after {
+	transform: scale(1);
+	border-color: #aaa;
+}
+
+.fld-chk:checked:disabled:after {
+	transform: scale(1);
+}
+
+.fld-chk-lbl {
+	/* flex: 1; */
+	display: inline-block;
+	/* width: 180px; */
+	height: 100px;
+	/* block width - tickbox width */
+	font-size: 18px;
+	line-height: 1.25;
+	overflow: hidden;
+	word-wrap: break-word;
+	text-align: left;
+}
+
+.fld--row .fld-label {
+	margin: 0;
+	padding: 0;
+}
+
+.fld--col .fld-label {
+	margin: 0;
+	padding: 0;
+}
+
+.fld--row input {
+	margin: 0;
+	padding: 0;
+}
+
+.fld--col input {
+	margin: 0;
+	padding: 0;
+}

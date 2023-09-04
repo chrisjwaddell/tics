@@ -1,0 +1,86 @@
+.gadget-container {
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	height: 214px;
+	margin: 10px;
+	border: 2px solid green;
+}
+
+.gadget-container.corner,
+.gadget-container .corner {
+	border-radius: 6px;
+}
+
+.gadget-container__top {
+	position: relative;
+	padding: 2px;
+}
+
+.gadget-container__top .c-close {
+	top: 2px;
+}
+
+.gadget-container h2 {
+	font-size: 18px;
+	color: green;
+	text-align: center;
+}
+.gadget-container h3 {
+	text-align: center;
+	font-size: 25px;
+	margin: 0;
+	background-color: green;
+	color: white;
+}
+
+.counter__count {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	font-size: 60px;
+}
+
+.counter__count p {
+	margin: 0;
+	color: #000;
+	font-size: 60px;
+}
+
+.gadget-container__details {
+	height: 35px;
+	text-align: center;
+	font-size: 14px;
+	font-style: italic;
+}
+
+.counter__inc,
+.counter__dec {
+	flex: 1;
+	height: 30px;
+	background-color: green;
+	font-size: 20px;
+	color: #fff;
+}
+
+.counter__inc {
+	border-left: 1px solid #ffffff;
+	border-right: none;
+}
+
+.counter__dec {
+	border-right: 1px solid #ffffff;
+	border-left: none;
+}
+
+.counter__clear {
+	width: 90px;
+	height: 25px;
+	margin: 0 auto;
+	font-size: 15px;
+	border-right: 1px solid #ffffff;
+	border-left: none;
+	background-color: rgba(159, 16, 46, 0.5);
+	color: white;
+}

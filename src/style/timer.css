@@ -1,0 +1,23 @@
+.timer__start,
+.timer__pause,
+.timer__reset {
+	flex: 1;
+	height: 40px;
+	background-color: green;
+	font-size: 16px;
+	color: #fff;
+}
+
+.timer__inputs {
+	margin: 15px auto 20px;
+	width: 170px;
+	font-size: 30px;
+}
+
+.timer__inputs input {
+	width: 45px;
+	font-size: 30px;
+	text-align: center;
+	margin-left: 2px;
+	margin-right: 2px;
+}
