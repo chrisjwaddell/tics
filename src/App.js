@@ -41,7 +41,7 @@ function App() {
 		arr = []
 	}
 
-	const [components, setComponents] = useState([])
+	const [components, setComponents] = useState(arr)
 
 	useEffect(() => {
 		window.localStorage.setItem("tics", JSON.stringify(components))

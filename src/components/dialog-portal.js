@@ -21,9 +21,7 @@ const Dialog = forwardRef((props, ref) => {
 				<Form
 					ref={props.formRef}
 					method={"dialog"}
-					fields={props.fields.map((el, idx) => {
-						return el
-					})}
+					fields={props.fields.map((el, idx) => el)}
 				/>
 				<div className="modal__buttons">
 					<button
