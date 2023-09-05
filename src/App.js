@@ -155,6 +155,7 @@ function App() {
 	}
 
 	function handleCancel(ref) {
+		ref.current.reset()
 		ref.current.close()
 	}
 
