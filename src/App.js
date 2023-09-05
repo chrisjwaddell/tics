@@ -154,8 +154,21 @@ function App() {
 		}
 	}
 
-	function handleCancel(ref) {
-		ref.current.reset()
+	function handleCancel(ref, mode) {
+		switch (mode) {
+			case "timer":
+				timerFormRef.current.reset()
+				break
+			case "counter":
+				counterFormRef.current.reset()
+				break
+			case "stopwatch":
+				stopwatchFormRef.current.reset()
+				break
+			default:
+				break
+		}
+
 		ref.current.close()
 	}
 
@@ -205,13 +218,25 @@ function App() {
 			<div className="o-flex">
 				<aside role="banner">
 					<div className="o-flex column">
-						<button className="c-btn" onClick={handleTimer}>
+						<button
+							key="timer"
+							className="c-btn"
+							onClick={handleTimer}
+						>
 							Add Timer
 						</button>
-						<button className="c-btn" onClick={handleCounter}>
+						<button
+							key="counter"
+							className="c-btn"
+							onClick={handleCounter}
+						>
 							Add Counter
 						</button>
-						<button className="c-btn" onClick={handleStopwatch}>
+						<button
+							key="stopwatch"
+							className="c-btn"
+							onClick={handleStopwatch}
+						>
 							Add Stopwatch
 						</button>
 					</div>
@@ -260,7 +285,7 @@ function App() {
 				]}
 				formRef={timerFormRef}
 				handleSubmit={handleTimerSubmit}
-				handleCancel={(ref) => handleCancel(timerModalRef)}
+				handleCancel={(ref) => handleCancel(timerModalRef, "timer")}
 				ref={timerModalRef}
 			></Dialog>
 			<Dialog
@@ -289,7 +314,7 @@ function App() {
 				]}
 				formRef={counterFormRef}
 				handleSubmit={handleCounterSubmit}
-				handleCancel={(ref) => handleCancel(counterModalRef)}
+				handleCancel={(ref) => handleCancel(counterModalRef, "counter")}
 				ref={counterModalRef}
 			></Dialog>
 			<Dialog
@@ -318,7 +343,9 @@ function App() {
 				]}
 				formRef={stopwatchFormRef}
 				handleSubmit={handleStopwatchSubmit}
-				handleCancel={(ref) => handleCancel(stopwatchModalRef)}
+				handleCancel={(ref) =>
+					handleCancel(stopwatchModalRef, "stopwatch")
+				}
 				ref={stopwatchModalRef}
 			></Dialog>
 		</React.StrictMode>
