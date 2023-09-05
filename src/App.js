@@ -31,23 +31,20 @@ function App() {
 	const stopwatchTitleRef = useRef()
 
 	const mainRef = useRef()
-	// used to get a live version of the state
-	// so that I can delete child components
-	const stateRef = useRef()
 
 	let arr = []
 
 	try {
 		arr = JSON.parse(window.localStorage.getItem("tics"))
+		if (!arr) arr = []
 	} catch (err) {
 		arr = []
 	}
 
-	const [components, setComponents] = useState(arr)
+	const [components, setComponents] = useState([])
 
 	useEffect(() => {
-		stateRef.current = components
-		window.localStorage.setItem("tics", JSON.stringify(stateRef.current))
+		window.localStorage.setItem("tics", JSON.stringify(components))
 	}, [components])
 
 	function uuid() {
@@ -98,13 +95,7 @@ function App() {
 			]
 
 			setComponents(newComponents)
-
-			stateRef.current = newComponents
-
-			window.localStorage.setItem(
-				"tics",
-				JSON.stringify(stateRef.current)
-			)
+			window.localStorage.setItem("tics", JSON.stringify(newComponents))
 
 			timerFormRef.current.reset()
 		}
@@ -130,13 +121,7 @@ function App() {
 			]
 
 			setComponents(newComponents)
-
-			stateRef.current = newComponents
-
-			window.localStorage.setItem(
-				"tics",
-				JSON.stringify(stateRef.current)
-			)
+			window.localStorage.setItem("tics", JSON.stringify(newComponents))
 			counterFormRef.current.reset()
 		}
 	}
@@ -163,12 +148,7 @@ function App() {
 
 			setComponents(newComponents)
 
-			stateRef.current = newComponents
-
-			window.localStorage.setItem(
-				"tics",
-				JSON.stringify(stateRef.current)
-			)
+			window.localStorage.setItem("tics", JSON.stringify(newComponents))
 
 			stopwatchFormRef.current.reset()
 		}
@@ -179,7 +159,9 @@ function App() {
 	}
 
 	function handleDelete(id) {
-		let newComponents = stateRef.current.filter((co) => co.props.id !== id)
+		console.log("handleDelete")
+		console.log(components)
+		let newComponents = components.filter((co) => co.props.id !== id)
 		setComponents(newComponents)
 	}
 
