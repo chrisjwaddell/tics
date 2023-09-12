@@ -7,6 +7,7 @@ export function TextInput({
 	placeholder,
 	value,
 	onFocus,
+	onChange,
 }) {
 	return (
 		<>
@@ -20,6 +21,7 @@ export function TextInput({
 				className={className}
 				placeholder={placeholder}
 				onFocus={onFocus}
+				onChange={onChange}
 				value={value}
 			></input>
 		</>
@@ -40,6 +42,7 @@ export const TextInputF = forwardRef((props, ref) => {
 				className={props.className}
 				placeholder={props.placeholder}
 				onFocus={props.onFocus}
+				onChange={props.onChange}
 				value={props.value}
 			></input>
 		</>

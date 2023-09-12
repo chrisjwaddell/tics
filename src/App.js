@@ -61,6 +61,14 @@ function App() {
 		return uuid
 	}
 
+	function handleTitleChange(ev) {
+		console.log("handleTitleChange")
+		if (ev.target.value.length > 16) {
+			ev.preventDefault()
+			ev.target.value = ev.target.value.slice(0, 16)
+		}
+	}
+
 	function handleTimer() {
 		timerModalRef.current.classList.add("overflow-hidden")
 		timerModalRef.current.showModal()
@@ -173,8 +181,6 @@ function App() {
 	}
 
 	function handleDelete(id) {
-		console.log("handleDelete")
-		console.log(components)
 		let newComponents = components.filter((co) => co.props.id !== id)
 		setComponents(newComponents)
 	}
@@ -268,6 +274,7 @@ function App() {
 							name="title"
 							label="Timer Title"
 							placeholder="Enter Timer Title"
+							onChange={handleTitleChange}
 						/>
 					</div>,
 					<div className="fld--col">

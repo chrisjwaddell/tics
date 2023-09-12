@@ -9,11 +9,22 @@ const Dialog = forwardRef((props, ref) => {
 		ref.current.close()
 	}
 
+	function handleTitleChange(ev) {
+		if (ev.target.value.length > 16) {
+			ev.preventDefault()
+			ev.target.value = ev.target.value.slice(0, 16)
+		}
+	}
+
 	return createPortal(
 		<dialog ref={ref} className="modal">
 			<div className="modal__top">
 				<h3 className="modal__title">{props.title}</h3>
-				<div className="c-close" onClick={props.handleCancel}>
+				<div
+					className="c-close"
+					onChange={handleTitleChange}
+					onClick={props.handleCancel}
+				>
 					<div className="c-close__container"></div>
 				</div>
 			</div>
