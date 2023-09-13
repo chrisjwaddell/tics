@@ -61,14 +61,6 @@ function App() {
 		return uuid
 	}
 
-	function handleTitleChange(ev) {
-		console.log("handleTitleChange")
-		if (ev.target.value.length > 16) {
-			ev.preventDefault()
-			ev.target.value = ev.target.value.slice(0, 16)
-		}
-	}
-
 	function handleTimer() {
 		timerModalRef.current.classList.add("overflow-hidden")
 		timerModalRef.current.showModal()
@@ -271,14 +263,16 @@ function App() {
 					<div className="fld--col">
 						<TextInputF
 							ref={timerTitleRef}
+							keyid="timerTitle"
 							name="title"
 							label="Timer Title"
 							placeholder="Enter Timer Title"
-							onChange={handleTitleChange}
+							maxLength="16"
 						/>
 					</div>,
 					<div className="fld--col">
 						<TextArea
+							keyid="timerArea"
 							label="Details"
 							name="details"
 							style={{
@@ -294,6 +288,7 @@ function App() {
 				handleSubmit={handleTimerSubmit}
 				handleCancel={(ref) => handleCancel(timerModalRef, "timer")}
 				ref={timerModalRef}
+				keyid="timerDialog"
 			></Dialog>
 			<Dialog
 				title="Enter a Counter Title"
@@ -301,6 +296,7 @@ function App() {
 					<div className="fld--col">
 						<TextInputF
 							ref={counterTitleRef}
+							keyid="counterTitle"
 							name="title"
 							label="Counter Title"
 							placeholder="Enter Counter Title"
@@ -308,6 +304,7 @@ function App() {
 					</div>,
 					<div className="fld--col">
 						<TextArea
+							keyid="counterArea"
 							label="Details"
 							name="details"
 							style={{
@@ -323,6 +320,7 @@ function App() {
 				handleSubmit={handleCounterSubmit}
 				handleCancel={(ref) => handleCancel(counterModalRef, "counter")}
 				ref={counterModalRef}
+				keyid="counterDialog"
 			></Dialog>
 			<Dialog
 				title="Enter a Stopwatch Title"
@@ -330,6 +328,7 @@ function App() {
 					<div className="fld--col">
 						<TextInputF
 							ref={stopwatchTitleRef}
+							keyid="stopwatchTitle"
 							name="title"
 							label="Stopwatch Title"
 							placeholder="Enter Stopwatch Title"
@@ -337,6 +336,7 @@ function App() {
 					</div>,
 					<div className="fld--col">
 						<TextArea
+							keyid="stopwatchArea"
 							label="Details"
 							name="details"
 							style={{
@@ -354,6 +354,7 @@ function App() {
 					handleCancel(stopwatchModalRef, "stopwatch")
 				}
 				ref={stopwatchModalRef}
+				keyid="stopwatchDialog"
 			></Dialog>
 		</React.StrictMode>
 	)

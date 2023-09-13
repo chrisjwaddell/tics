@@ -2,6 +2,7 @@ import React from "react"
 
 export default function TextArea({
 	name,
+	keyid,
 	label,
 	className,
 	placeholder,
@@ -10,7 +11,7 @@ export default function TextArea({
 	style,
 }) {
 	return (
-		<>
+		<div key={keyid}>
 			<label htmlFor={name} className="fld-label">
 				{label}
 			</label>
@@ -23,7 +24,7 @@ export default function TextArea({
 				value={value}
 				style={style}
 			></textarea>
-		</>
+		</div>
 	)
 }
 

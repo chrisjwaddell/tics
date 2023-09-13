@@ -3,6 +3,7 @@ import React, {forwardRef} from "react"
 export function TextInput({
 	name,
 	label,
+	keyid,
 	className,
 	placeholder,
 	value,
@@ -10,7 +11,7 @@ export function TextInput({
 	onChange,
 }) {
 	return (
-		<>
+		<div key={keyid}>
 			<label htmlFor={name} className="fld-label">
 				{label}
 			</label>
@@ -22,15 +23,16 @@ export function TextInput({
 				placeholder={placeholder}
 				onFocus={onFocus}
 				onChange={onChange}
+				maxLength={props.maxLength}
 				value={value}
 			></input>
-		</>
+		</div>
 	)
 }
 
 export const TextInputF = forwardRef((props, ref) => {
 	return (
-		<>
+		<div key={props.keyid}>
 			<label htmlFor={props.name} className="fld-label">
 				{props.label}
 			</label>
@@ -43,9 +45,10 @@ export const TextInputF = forwardRef((props, ref) => {
 				placeholder={props.placeholder}
 				onFocus={props.onFocus}
 				onChange={props.onChange}
+				maxLength={props.maxLength}
 				value={props.value}
 			></input>
-		</>
+		</div>
 	)
 })
 
