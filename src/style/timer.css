@@ -21,3 +21,8 @@
 	margin-left: 2px;
 	margin-right: 2px;
 }
+
+.timer__inputs input:disabled {
+	opacity: 1;
+	color: #820078;
+}
