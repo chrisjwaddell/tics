@@ -89,6 +89,7 @@ function App() {
 						id: newId,
 						title: timerFormRef.current.elements.title.value,
 						details: timerFormRef.current.elements.details.value,
+						time: 0,
 						onDelete: handleDelete(newId),
 					},
 				},
