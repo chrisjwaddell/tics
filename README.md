@@ -1,5 +1,5 @@
 # TiCS
-TiCS is an application that lets you add multiple Timers, Counters and Stopwatchs to a webpage. 
+TiCS is an application that lets you add multiple Timers, Counters and Stopwatches to a webpage. 
 
 When the timer finishes, you get alerted. Chrome and Firefox flash in the taskbar when the timer expires.
 
