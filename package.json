@@ -9,7 +9,8 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
-		"build": "webpack --config webpack.config.js"
+		"build": "webpack --config webpack.config.js",
+		"start": "npx http-server dist -p 8050"
 	},
 	"author": "",
 	"license": "ISC",
