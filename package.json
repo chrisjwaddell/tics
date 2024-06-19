@@ -11,7 +11,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "webpack --config webpack.config.js",
-		"start": "npm http-server dist -p 8050 -o"
+		"start": "http-server dist -p 8050 -o"
 	},
 	"author": "",
 	"license": "ISC",
