@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"http-server": "^14.1.1",
+		"open-cli": "^8.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"webpack": "^5.88.2",
@@ -11,7 +11,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "webpack --config webpack.config.js",
-		"start": "http-server dist -p 8050 -o"
+		"start": "open-cli ./dist/index.html"
 	},
 	"author": "",
 	"license": "ISC",
